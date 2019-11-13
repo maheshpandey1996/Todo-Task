@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00b8ff">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_task_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#001ccc"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="5dp"
+                android:background="@android:color/transparent"
+                android:onClick="closeAddTask"
+                android:padding="5dp"
+                android:src="@drawable/ic_action_close" />
+
+            <TextView
+                android:id="@+id/toolbar_task_add_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="0dp"
+                android:gravity="center_vertical|start"
+                android:paddingLeft="16dp"
+                android:paddingRight="4dp"
+                android:text="Create"
+                android:textColor="#ffffff"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@android:color/transparent"
+                android:onClick="doneAddTask"
+                android:padding="5dp"
+                android:src="@drawable/ic_action_done" />
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_task_add"
+        android:layout_centerInParent="true"
+        android:background="#00b8ff"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/task_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:background="@android:color/white"
+            android:ems="10"
+            android:hint="Task"
+            android:padding="12dp"
+            android:singleLine="true"
+            android:textColor="#666666"
+            android:textColorHint="#CCCCCC" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#D2D2D2" />
+
+        <EditText
+            android:id="@+id/task_date"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:background="@android:color/white"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="Task Date"
+            android:onClick="showStartDatePicker"
+            android:padding="12dp"
+            android:singleLine="true"
+            android:textColor="#666666"
+            android:textColorHint="#CCCCCC" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#D2D2D2" />
+
+        <EditText
+            android:id="@+id/notify_time"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:background="@android:color/white"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="Alarm time"
+            android:onClick="showStartTimePicker"
+            android:padding="12dp"
+            android:singleLine="true"
+            android:textColor="#666666"
+            android:textColorHint="#CCCCCC" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#D2D2D2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Status"
+                android:textColor="@android:color/primary_text_light" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupstatus"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RadioButton
+                    android:id="@+id/radButtondone"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/materialRed"
+                    android:checked="true"
+                    android:text="Done"
+                    android:theme="@style/WhiteRadioButton" />
+
+                <RadioButton
+                    android:id="@+id/radButtonnotdone"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/materialOrange"
+                    android:text="Not done"
+                    android:theme="@style/WhiteRadioButton" />
+
+
+            </RadioGroup>
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#D2D2D2" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Priority"
+                android:textColor="@android:color/primary_text_light" />
+
+            <!-- RadioGroup for visible selection of a priority -->
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <RadioButton
+                    android:id="@+id/radButton1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/materialRed"
+                    android:checked="true"
+                    android:text="High"
+                    android:theme="@style/WhiteRadioButton" />
+
+                <RadioButton
+                    android:id="@+id/radButton2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/materialOrange"
+                    android:text="Medium"
+                    android:theme="@style/WhiteRadioButton" />
+
+                <RadioButton
+                    android:id="@+id/radButton3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/materialYellow"
+                    android:text="Low"
+                    android:theme="@style/WhiteRadioButton" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/waste"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="30dp"
+            android:layout_weight="1"
+            android:onClick="deleteButton"
+            android:padding="10dp"
+            android:src="@mipmap/waste"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
